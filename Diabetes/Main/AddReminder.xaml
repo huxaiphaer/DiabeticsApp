@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:translator="clr-namespace:Diabetes.Helpers"
+    Title="{translator:Translate add_reminder_title}" 
+    x:Class="Diabetes.Main.AddReminder">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Text="SAVE" Clicked="onSave">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout Margin="6">
+                <StackLayout Margin="3" Orientation="Vertical">
+                    <Label Text="{translator:Translate inslintype}" FontAttributes="Bold" FontSize="17" TextColor="Black" />
+                    <Entry Placeholder="{translator:Translate enterinsulin}" PlaceholderColor="#53beed" x:Name="inulin_type_entry" />
+                </StackLayout>
+                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="#f6e9e9" />
+                <StackLayout Margin="3">
+                    <Label Text="{translator:Translate mesurements}" FontAttributes="Bold" FontSize="17" TextColor="Black" />
+                    <Picker Title="Select measurements" x:Name="measurements_pk" />
+                </StackLayout>
+                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="#f6e9e9" />
+                <StackLayout Margin="3">
+                    <StackLayout Orientation="Horizontal" Margin="3">
+                        <Image Source="alarm_icon.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="Start" />
+                        <Label Text="{translator:Translate addreminder}" VerticalOptions="Center" FontSize="17" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+                    </StackLayout>
+                    <TimePicker x:Name="time_pk" />
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="#f6e9e9" />
+                    <StackLayout Margin="3">
+                        <ListView x:Name="set_time_lv" HasUnevenRows="true" ItemSelected="Handle_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Margin="5">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="alarm_cancel.png" HeightRequest="20" WidthRequest="30" HorizontalOptions="StartAndExpand" />
+                                                <Label Text="{Binding units}" FontSize="13" TextColor="#DBA9A9" HorizontalOptions="Center" />
+                                                <Label Text="{Binding alarm_time}" FontSize="12" TextColor="#53beed" HorizontalOptions="EndAndExpand" />
+                                            </StackLayout>
+                                            <Label Text="{Binding insulin_type}" FontSize="11" FontAttributes="Bold" TextColor="Black" HorizontalOptions="EndAndExpand" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Button Text="{translator:Translate adddetails}" BackgroundColor="#53beed" Clicked="onAddDetails" TextColor="White" x:Name="add_details_btn" />
+                        <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="#f6e9e9" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

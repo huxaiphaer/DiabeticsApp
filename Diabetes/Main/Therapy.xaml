@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#f6e9e9" 
+    x:Class="Diabetes.Main.Therapy"
+      xmlns:translator="clr-namespace:Diabetes.Helpers"
+    Title="{translator:Translate therapy_title}"
+    >
+	<StackLayout>
+        <Frame Margin="5,9,5,5" HasShadow="True" BackgroundColor="White" Padding="0,0,0,0">
+            <Frame.OutlineColor>
+                <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="#DCDCDC" />
+            </Frame.OutlineColor>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Handle_Tapped" NumberOfTapsRequired="1" />
+            </Frame.GestureRecognizers>
+            <StackLayout HorizontalOptions="StartAndExpand" Padding="5" Orientation="Horizontal" Margin="0,7,0,0">
+                <Image Source="add_icon.png" Margin="5" HeightRequest="30" WidthRequest="30" />
+                <Label Text="{translator:Translate setreminder_therapy_page}" TextColor="#53BEED" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" Margin="5" FontAttributes="Bold" />
+            </StackLayout>
+        </Frame>
+      
+        <Label Text="{translator:Translate myReminder}" HorizontalOptions="Start" FontSize="15" FontAttributes="Italic,Bold" TextColor="#842121" Margin="5" />
+        <ListView x:Name="reminder_lv" HasUnevenRows="true" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="5">
+                            <Frame Margin="5,9,5,5" HasShadow="True" BackgroundColor="White" Padding="0,0,0,0">
+                                <Frame.OutlineColor>
+                                    <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="#DCDCDC" />
+                                </Frame.OutlineColor>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer  NumberOfTapsRequired="1" />
+                                </Frame.GestureRecognizers>
+                                <StackLayout Padding="5" Orientation="Vertical" Margin="0,7,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="insulin_pen.png" HeightRequest="30" WidthRequest="30" />
+                                        <Label Text="{Binding insulin_type}" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" Margin="5" FontAttributes="Bold" />
+                                         <Image Source="delete_my_time.png" HeightRequest="30" WidthRequest="30"  HorizontalOptions="EndAndExpand" >
+                                            <Image.GestureRecognizers>
+                                                 <TapGestureRecognizer Tapped="OnDeleteTimeSet" NumberOfTapsRequired="1" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
+                                    <Label FontSize="10" TextColor="Black" FontAttributes="Italic"  />
+                                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="#f6e9e9" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout>
+                                          <Label FontSize="14" TextColor="#842121" FontAttributes="Bold" Text="{translator:Translate timeset}" />
+                                        <Label FontSize="13" TextColor="#53bedd" Text="{Binding AlarmList}" />
+                                        </StackLayout>
+                                        <Image Source="alarm_icon.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

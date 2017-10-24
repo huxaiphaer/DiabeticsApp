@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+     
+    x:Class="Diabetes.Main.Login"
+    xmlns:translator="clr-namespace:Diabetes.Helpers"
+    Title="{translator:Translate loginbutton}">
+	<StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Padding="10">
+        
+            <Frame  Margin="5"  HasShadow="True" BackgroundColor="White">
+                            <Frame.OutlineColor>
+                                <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="#DCDCDC" />
+                            </Frame.OutlineColor>
+            <StackLayout>
+                <AbsoluteLayout >
+                                <Image Source="tab_back_final.png" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill">
+                                </Image>
+                                <Label Text="Enter Your Credentials" TextColor="White" AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional" FontSize="15" HorizontalOptions="Center" FontAttributes="Bold" />
+                            </AbsoluteLayout>
+        <Entry Placeholder="{translator:Translate username}" PlaceholderColor="#81B3F5" Margin="8" VerticalOptions="Center" x:Name="username_entry" HeightRequest="40" />
+        <Entry Placeholder="{translator:Translate password}" IsPassword="true" PlaceholderColor="#81B3F5" Margin="8" VerticalOptions="Center" x:Name="password_entry" HeightRequest="40" />
+        <Button Text="{translator:Translate loginbutton}" Margin="8" Clicked="Handle_Clicked" TextColor="White" BackgroundColor="#53beed" />
+              
+        <Button BackgroundColor="White" Text="{translator:Translate signupbutton}"  Clicked="onSignUp" FontAttributes="Bold,Italic"  TextColor="#53beed" HorizontalOptions="Center"/>        
+        <ActivityIndicator x:Name="activity_i_sales_logining" Color="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            </Frame>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    Title="Login"
+    x:Class="Diabetes.Main.SignUp">
+	<StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Padding="10">
+        
+            <Frame  Margin="5"  HasShadow="True" BackgroundColor="White">
+                            <Frame.OutlineColor>
+                                <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="#DCDCDC" />
+                            </Frame.OutlineColor>
+            <StackLayout>
+                <Label Text="Login with"  TextColor="#53beed" FontAttributes="Bold"  Margin="10,5,0,0"/>
+        
+        <Button Text="FACEBOOK" Clicked="onFacebook" Margin="8"  TextColor="White" BackgroundColor="#3b5998" />
+             <Button Text="GMAIL" Margin="8"  TextColor="White" BackgroundColor="Red" />
+              
+        
+            </StackLayout>
+            </Frame>
+    </StackLayout>
+</ContentPage>

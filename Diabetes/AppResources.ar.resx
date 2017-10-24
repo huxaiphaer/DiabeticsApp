@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+
+	 <!-- Login Page -->
+   <data name="username" xml:space="preserve">
+      <value>  اسم المستخدم  </value>
+    </data>
+    <data  name="password" xml:space="preserve">
+      <value> كلمه السر</value>
+    </data>
+    <data  name="loginpage" xml:space="preserve">
+      <value> تسجيل الدخول</value>
+    </data>
+    <data  name="loginbutton" xml:space="preserve">
+      <value> تسجيل الدخول</value>
+    </data>
+    <data  name="signupbutton" xml:space="preserve">
+      <value> سجل </value>
+    </data>
+       <!-- Navigation Drawer -->
+    <data  name="home_nav" xml:space="preserve">
+      <value> الصفحة الرئيسية</value>
+    </data>
+    <data  name="therapy_nav" xml:space="preserve">
+      <value> علاج</value>
+    </data>
+    <data  name="trackme_nav" xml:space="preserve">
+      <value> تتبعني</value>
+    </data>
+    <data  name="settings_nav" xml:space="preserve">
+      <value> إعدادات</value>
+    </data>
+    <data  name="therapy_home" xml:space="preserve">
+      <value> علاج</value>
+    </data>
+    <data  name="insulin_tracking" xml:space="preserve">
+      <value> إنسولين تتبع</value>
+    </data>
+   
+    <!-- Therapy Page -->
+	<data  name="therapy_title" xml:space="preserve">
+      <value> العلاج الأنسولين</value>
+    </data>
+    <data  name="setreminder_therapy_page" xml:space="preserve">
+      <value> تعيين تذكير</value>
+    </data>
+    <data  name="myReminder" xml:space="preserve">
+      <value> بلدي تذكير</value>
+    </data>
+    <data  name="timeset" xml:space="preserve">
+      <value> الوقت المحدد (24 ساعة)</value>
+    </data>
+
+       <!-- AddReminder Page -->
+	<data  name="add_reminder_title" xml:space="preserve">
+      <value>  إضافة تذكير </value>
+    </data>
+    <data  name="inslintype" xml:space="preserve">
+      <value> نوع الأنسولين</value>
+    </data>
+    <data  name="enterinsulin" xml:space="preserve">
+      <value> أدخل نوع الأنسولين </value>
+    </data>
+    <data  name="mesurements" xml:space="preserve">
+      <value> حدد القياسات</value>
+    </data>
+    <data  name="addreminder" xml:space="preserve">
+      <value>  إضافة تذكير </value>
+    </data>
+	<data  name="adddetails" xml:space="preserve">
+      <value> إضافة تفاصيل</value>
+    </data>
+</root>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+    Title="Diabetics App" x:Class="Diabetes.Main.HomeActivity" 
+    xmlns:translator="clr-namespace:Diabetes.Helpers">
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*" />
+            <RowDefinition Height=".7*" />
+        </Grid.RowDefinitions>
+        <cv:CarouselView x:Name="AdvertsCarousel" HeightRequest="200">
+            <cv:CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <AbsoluteLayout Grid.RowSpan="2">
+                            <ActivityIndicator x:Name="advert_activity_indicator" Color="#4D7EE1" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" AbsoluteLayout.LayoutFlags="PositionProportional" IsRunning="{Binding Source={x:Reference advertImage}, Path=IsLoading}" />
+                            <Image Aspect="AspectFill" Source="{Binding Image}" x:Name="advertImage" WidthRequest="200" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
+                        </AbsoluteLayout>
+                        <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
+                            <Label TextColor="White" Text="{Binding Title}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </cv:CarouselView.ItemTemplate>
+        </cv:CarouselView>
+        <StackLayout Grid.Row="1" Orientation="Vertical">
+            <!--therapy  -->
+            <Frame Margin="5,9,5,5" HasShadow="True" BackgroundColor="White" Padding="0,0,0,0">
+                <Frame.OutlineColor>
+                    <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="#DCDCDC" />
+                </Frame.OutlineColor>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTherapy" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical" Margin="0,7,0,0">
+                    <Label Text="{translator:Translate therapy_home}" TextColor="#53BEED" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" Margin="5" FontAttributes="Bold" />
+                    <Image Source="therapy_menu.png" HorizontalOptions="CenterAndExpand" HeightRequest="80">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTherapy" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </Frame>
+            <!--Insulin  -->
+            <Frame Margin="5,9,5,5" HasShadow="True" BackgroundColor="White" Padding="0,0,0,0">
+                <Frame.OutlineColor>
+                    <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="#DCDCDC" />
+                </Frame.OutlineColor>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTrack" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical" Margin="0,7,0,0">
+                    <Label Text="{translator:Translate insulin_tracking}" TextColor="#53BEED" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" Margin="5" FontAttributes="Bold" />
+                    <Image Source="tracking_menu.png" HorizontalOptions="CenterAndExpand" HeightRequest="80">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="OnTrack" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </Grid>
+</ContentPage>

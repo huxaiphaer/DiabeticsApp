@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" BackgroundColor="#fdf1e7" xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" xmlns:local="clr-namespace:Microcharts.Samples.Forms" Title="Insulin Tracking" x:Class="Diabetes.Main.Track">
+    <StackLayout VerticalOptions="Center">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Total Number of Days :" Margin="7,1,1,1" FontAttributes="Bold" />
+            <Label   x:Name="num_of_days"/>
+        </StackLayout>
+        
+         <StackLayout Orientation="Horizontal" Margin="3" HorizontalOptions="Center">
+            <BoxView BackgroundColor="#FF1493" HeightRequest="10" WidthRequest="10"/>
+            <Label  Text="MISSED DAY(S)"/>
+            <Label  x:Name="missed_label"/>
+            <BoxView BackgroundColor="#266489"  HeightRequest="10" WidthRequest="10"/>
+            <Label  Text="TAKEN DAY(S)"/>
+            <Label  x:Name="taken_label"/>
+        </StackLayout>
+     
+        <microcharts:ChartView x:Name="chartView" HeightRequest="400" WidthRequest="100" />
+    </StackLayout>
+</ContentPage>
