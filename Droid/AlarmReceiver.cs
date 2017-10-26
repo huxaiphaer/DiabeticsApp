@@ -20,6 +20,8 @@ namespace Diabetes.Droid
 
         public override void OnReceive(Context context, Intent intent)
         {
+            if (intent.Action.Equals("android.intent.action.BOOT_COMPLETED"))
+			{
             var message = intent.GetStringExtra("message");
             var title = intent.GetStringExtra("title");
 
@@ -50,15 +52,36 @@ namespace Diabetes.Droid
             var pIntent2 = PendingIntent.GetBroadcast(context, 0, actionIntent2, PendingIntentFlags.CancelCurrent);
 
             Intent resultIntent = context.PackageManager.GetLaunchIntentForPackage(context.PackageName);
-            /*
-			var resultIntent = new Intent(context, typeof(MainActivity));
-			resultIntent.SetFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask);*/
-
+      
             var contentIntent = PendingIntent.GetActivity(context, 0, resultIntent, PendingIntentFlags.CancelCurrent);
 
             var pending = PendingIntent.GetActivity(context, 0,
                 resultIntent,
                 PendingIntentFlags.CancelCurrent);
+            //seting an alarm
+            MedicationDatabase db = new MedicationDatabase();
+            var alarm_list = db.GetAlarmList();
+            //Debug.WriteLine(" Time -- : "+ m.ToString());
+            var title_ = "Diabetics App";
+            var message_ = "\"Hello  we remind you of taking your inslin dosage now";
+            foreach (var list in alarm_list)
+            {
+                var hour = Int32.Parse(list.Substring(0, 2));
+                var minute = Int32.Parse(list.Substring(3, 2));
+                Intent myintent = new Intent(Xamarin.Forms.Forms.Context, typeof(AlarmReceiver));
+                myintent.PutExtra("message", message_);
+                myintent.PutExtra("title", title_);
+                PendingIntent pendingintent = PendingIntent.GetBroadcast(Xamarin.Forms.Forms.Context, 0, myintent, PendingIntentFlags.UpdateCurrent);
+
+                Java.Util.Date date = new Java.Util.Date();
+                Java.Util.Calendar cal = Java.Util.Calendar.Instance;
+                cal.TimeInMillis = Java.Lang.JavaSystem.CurrentTimeMillis();
+                cal.Set(Java.Util.CalendarField.HourOfDay, hour);
+                cal.Set(Java.Util.CalendarField.Minute, minute);
+                cal.Set(Java.Util.CalendarField.Second, 0);
+                AlarmManager alarmManager = Xamarin.Forms.Forms.Context.GetSystemService(Android.Content.Context.AlarmService) as AlarmManager;
+                alarmManager.Set(AlarmType.RtcWakeup, cal.TimeInMillis, pendingintent);
+            }
 
             // Instantiate the Big Text style:
             Notification.BigTextStyle textStyle = new Notification.BigTextStyle();
@@ -70,14 +93,13 @@ namespace Diabetes.Droid
                                 .AddAction(Resource.Drawable.cancel_notify, "REPLY", pIntent2)
                                 .SetSmallIcon(Resource.Drawable.ic_launcher)
                                 .SetContentTitle("Diabetics Reminder")
-                                 .SetDefaults(NotificationDefaults.Sound)
+                                .SetDefaults(NotificationDefaults.Sound)
                                 .SetStyle(new Notification
-              .BigTextStyle()
-              .SetSummaryText("")
-                                                                                       .SetBigContentTitle(title)
-                                                                                       .BigText(message)
-             )
-                    .SetDefaults(NotificationDefaults.All);
+                                .BigTextStyle()
+                                .SetSummaryText("")
+                                .SetBigContentTitle(title)
+                                .BigText(message)
+             ).SetDefaults(NotificationDefaults.All);
 
             builder.SetContentIntent(pending);
 
@@ -86,6 +108,7 @@ namespace Diabetes.Droid
 
             var manager = NotificationManager.FromContext(context);
             manager.Notify(10010, notification);
+        }
         }
     }
 
