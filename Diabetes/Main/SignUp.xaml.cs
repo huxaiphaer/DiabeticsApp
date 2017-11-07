@@ -15,5 +15,10 @@ namespace Diabetes.Main
 		{
             await Navigation.PushAsync(new LoginFacebook());
 		}
+
+        async void   onGmail(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new GmailLogin());
+        }
     }
 }

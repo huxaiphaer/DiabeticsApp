@@ -12,77 +12,102 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-	   <!-- Login Page -->
-	<data  name="username" xml:space="preserve">
+	<!-- Login Page -->
+	<data name="username" xml:space="preserve">
       <value>Username or login</value>
     </data>
-	<data  name="password" xml:space="preserve">
+	<data name="password" xml:space="preserve">
       <value> Password</value>
     </data>
-	<data  name="loginpage" xml:space="preserve">
+	<data name="loginpage" xml:space="preserve">
       <value> Login</value>
     </data>
-	<data  name="loginbutton" xml:space="preserve">
+	<data name="loginbutton" xml:space="preserve">
       <value> LOGIN</value>
     </data>
-	<data  name="signupbutton" xml:space="preserve">
+	<data name="signupbutton" xml:space="preserve">
       <value> NEW USER| SIGN UP </value>
     </data>
-	   <!-- Navigation Drawer -->
-	<data  name="home_nav" xml:space="preserve">
+	<!-- Navigation Drawer -->
+	<data name="home_nav" xml:space="preserve">
       <value> Home</value>
     </data>
-	<data  name="therapy_nav" xml:space="preserve">
+	<data name="therapy_nav" xml:space="preserve">
       <value> Therapy</value>
     </data>
-	<data  name="trackme_nav" xml:space="preserve">
+	<data name="trackme_nav" xml:space="preserve">
       <value> Track Me</value>
     </data>
-	<data  name="settings_nav" xml:space="preserve">
+	<data name="settings_nav" xml:space="preserve">
       <value> Settings</value>
     </data>
-	<data  name="therapy_home" xml:space="preserve">
+	<data name="therapy_home" xml:space="preserve">
       <value> THERAPY</value>
     </data>
-	<data  name="insulin_tracking" xml:space="preserve">
+	<data name="insulin_tracking" xml:space="preserve">
       <value> INSULIN TRACKING</value>
     </data>
-	<data  name="password" xml:space="preserve">
+	<data name="password" xml:space="preserve">
       <value> Password</value>
     </data>
-
-	
 	<!-- Therapy Page -->
-	<data  name="therapy_title" xml:space="preserve">
+	<data name="therapy_title" xml:space="preserve">
       <value> Insulin Therapy</value>
     </data>
-	<data  name="setreminder_therapy_page" xml:space="preserve">
+	<data name="setreminder_therapy_page" xml:space="preserve">
       <value> Set a Reminder</value>
     </data>
-	<data  name="myReminder" xml:space="preserve">
+	<data name="myReminder" xml:space="preserve">
       <value> My Reminder</value>
     </data>
-	<data  name="timeset" xml:space="preserve">
+	<data name="timeset" xml:space="preserve">
       <value> Time Set (24 hours)</value>
     </data>
-
-	   <!-- AddReminder Page -->
-	<data  name="add_reminder_title" xml:space="preserve">
+	<!-- AddReminder Page -->
+	<data name="add_reminder_title" xml:space="preserve">
       <value> Add Reminder</value>
     </data>
-	<data  name="inslintype" xml:space="preserve">
+	<data name="inslintype" xml:space="preserve">
       <value> Insulin Type</value>
     </data>
-	<data  name="enterinsulin" xml:space="preserve">
+	<data name="enterinsulin" xml:space="preserve">
       <value> Enter insulin type</value>
     </data>
-	<data  name="mesurements" xml:space="preserve">
+	<data name="mesurements" xml:space="preserve">
       <value> Select Measurements</value>
     </data>
-	<data  name="addreminder" xml:space="preserve">
+	<data name="addreminder" xml:space="preserve">
       <value> Add Reminder</value>
     </data>
-	<data  name="adddetails" xml:space="preserve">
+	<data name="adddetails" xml:space="preserve">
       <value> Add Details</value>
     </data>
+	<!-- Slider -->
+	<data name="contact_us" xml:space="preserve">
+      <value> "Contact Us and Advertise Here</value>
+    </data>
+	<data name="dontforget" xml:space="preserve">
+      <value>Don't forget to take medicine</value>
+    </data>
+	<data name="beyourself" xml:space="preserve">
+      <value> Be yourself with zero worries </value>
+    </data>
+	<data name="dialydiabetics" xml:space="preserve">
+      <value> Daily Diabetics Tips  </value>
+    </data>
+	<!-- logout-->
+	<data name="logout" xml:space="preserve">
+      <value>Log out  </value>
+    </data>
+	<!-- Tracking -->
+    <data name="total_number" xml:space="preserve">
+      <value> "Total Number of Days : </value>
+    </data>
+    <data name="misseddays" xml:space="preserve">
+      <value>Missed Day(s)</value>
+    </data>
+    <data name="takendays" xml:space="preserve">
+      <value> Taken Day(s)</value>
+    </data>
+   
 </root>

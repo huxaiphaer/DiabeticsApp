@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
-    Title="Diabetics App" x:Class="Diabetes.Main.HomeActivity" 
-    xmlns:translator="clr-namespace:Diabetes.Helpers">
+    xmlns:translator="clr-namespace:Diabetes.Helpers"
+    Title="Diabetics App" x:Class="Diabetes.Main.HomeActivity">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Text="{translator:Translate logout}" Clicked="onLogOut">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*" />
@@ -58,7 +62,7 @@
                     <Label Text="{translator:Translate insulin_tracking}" TextColor="#53BEED" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" Margin="5" FontAttributes="Bold" />
                     <Image Source="tracking_menu.png" HorizontalOptions="CenterAndExpand" HeightRequest="80">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer  Tapped="OnTrack" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Tapped="OnTrack" NumberOfTapsRequired="1" />
                         </Image.GestureRecognizers>
                     </Image>
                 </StackLayout>

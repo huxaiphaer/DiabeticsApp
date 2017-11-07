@@ -13,11 +13,17 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+
+using System.Threading.Tasks;
+using Diabetes.Main;
+
 namespace Diabetes.Droid
 {
-    [Activity(Label = "diabetics_app.Droid", Icon = "@drawable/ic_launcher", Theme = "@style/splashscreen", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Diabetics App", Icon = "@drawable/ic_launcher", Theme = "@style/splashscreen", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        public Handler mHandler;
+        ISetAlarm alarmService;
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -28,10 +34,16 @@ namespace Diabetes.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-			//Xamarin.Forms.Init();
-           
+
+
+           // MyLooper();
+
             LoadApplication(new App());
         }
+
+
+
+
 
     }
 }

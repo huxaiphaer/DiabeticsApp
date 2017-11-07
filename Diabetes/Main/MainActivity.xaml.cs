@@ -11,7 +11,7 @@ namespace Diabetes.Main
         {
             InitializeComponent();
 			masterPage.ListView.ItemSelected += OnItemSelected;
-			
+			NavigationPage.SetHasNavigationBar(this, false);
 
 		}
 

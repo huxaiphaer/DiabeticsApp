@@ -16,8 +16,7 @@ namespace Diabetes.Main
         {
             InitializeComponent();
 			//NavigationPage.SetHasNavigationBar(this, false);
-			MakeNotification n = new MakeNotification();
-			n.MakeAlarm();
+		
         }
         protected override void OnAppearing()
         {

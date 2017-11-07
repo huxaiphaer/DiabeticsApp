@@ -12,12 +12,16 @@ namespace Diabetes.localDB
 
         public MedicationDatabase()
         {
+            
             _connection = DependencyService.Get<ISQLite>().GetConnection();
             _connection.CreateTable<Medication>();
             _connection.CreateTable<SetReminder>();
-           // _connection.CreateTable<Track>();
+            // _connection.CreateTable<Track>();
             _connection.CreateTable<TrackMissed>();
             _connection.CreateTable<TrackTaken>();
+            _connection.CreateTable<LoginModel>();
+
+
         }
         public void AddDetails(string username, string alarm_time, string units, string insulin_type, string unique_id, string status)
         {
@@ -93,14 +97,14 @@ namespace Diabetes.localDB
                                           "('" + taken + "')");
         }
 
-		public void addtrackmissed(string missed)
-		{
+        public void addtrackmissed(string missed)
+        {
 
             _connection.Query<TrackMissed>("Insert into [TrackMissed] (missed) values" +
                                            "('" + missed + "')");
-		}
+        }
 
-        public int  GetTracksTakenNos()
+        public int GetTracksTakenNos()
         {
             return (from t in _connection.Table<TrackTaken>()
                     select t.taken).Count();
@@ -111,6 +115,33 @@ namespace Diabetes.localDB
             return (from t in _connection.Table<TrackMissed>()
                     select t.missed).Count();
         }
+
+        //Loging in 
+        public void addUser(string username, string logged)
+        {
+
+            _connection.Query<LoginModel>("Insert into [LoginModel] (username,LoggedIn) values" +
+                                          "('" + username + "', '" + logged + "')");
+        }
+
+        public void DeleteUsers()
+        {
+            _connection.DeleteAll<LoginModel>();
+        }
+
+		public string LoggedInStatus()
+		{
+            List<LoginModel> list = _connection.Query<LoginModel>("Select LoggedIn From [LoginModel] where ID=1");
+            return list[0].LoggedIn;
+
+		}
+
+		public string GetUserName()
+		{
+			List<LoginModel> list = _connection.Query<LoginModel>("Select username From [LoginModel] where ID=1");
+            return list[0].username;
+
+		}
 
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.Http;
+using Diabetes.localDB;
 using Diabetes.Model;
 using Xamarin.Forms;
 
@@ -22,9 +23,7 @@ namespace Diabetes.Main
         public HomeActivity()
         {
             InitializeComponent();
-			MakeNotification n = new MakeNotification();
-			n.MakeAlarm();
-
+			
 			//NavigationPage.SetHasNavigationBar(this, false);
 		}
 
@@ -39,24 +38,24 @@ namespace Diabetes.Main
                 adverts.Add(
                      new Adverts
                      {
-                         Title = "Contact Us and Advertise Here",
+                    Title = AppResources.contact_us,
                          Image = "advertise_here.png"
                      });
                 adverts.Add(new Adverts
                 {
-                    Title = "Don't forget to take medicine",
+                    Title = AppResources.dontforget,
                     Image = "be_reminded.png"
                 });
                 adverts.Add(
                      new Adverts
                      {
-                         Title = "Be yourself with zero worries",
+                    Title = AppResources.beyourself,
                          Image = "be_you.png"
                      });
                 adverts.Add(
                     new Adverts
                     {
-                        Title = "Daily Diabetics Tips",
+                    Title = AppResources.dialydiabetics,
                         Image = "diabetes_tips.png"
                     });
 
@@ -92,6 +91,13 @@ namespace Diabetes.Main
        async  void OnTrack(object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new Track());
+        }
+
+        async void onLogOut(object sender, System.EventArgs e)
+        {
+            MedicationDatabase db = new MedicationDatabase();
+            db.DeleteUsers();
+            await Navigation.PushAsync(new SignUp());
         }
     }
 }

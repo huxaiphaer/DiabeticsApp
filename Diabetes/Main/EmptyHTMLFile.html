@@ -4,6 +4,9 @@
         <meta charset="utf-8" />
         <title>
 
+            //Notification
+            http://stacktips.com/tutorials/android/repeat-alarm-example-in-android
+
             REACT JS:
             Academind
 
@@ -73,5 +76,55 @@
 
         var notification = builder.Build();
         manager.Notify(0, notification);
+        //
+
+
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Text;
+        using System.Threading;
+        using Android.App;
+        using Android.Content;
+        using Android.OS;
+        using Android.Runtime;
+        using Android.Views;
+        using Android.Widget;
+        using Diabetes.localDB;
+        using Diabetes.Main;
+
+
+        namespace Diabetes.Droid
+        {
+        [Application]
+        public class MainApplication : Application
+        {
+
+        public static Context AppContext;
+
+        public MainApplication()
+        {
+
+        }
+        public MainApplication(IntPtr handle, JniHandleOwnership transer) : base(handle, transer)
+        {
+        }
+
+        public override void OnCreate()
+        {
+
+        base.OnCreate();
+        AppContext = this.ApplicationContext;
+
+
+        }
+
+
+
+
+        }
+        }
+
+
     </body>
 </html>

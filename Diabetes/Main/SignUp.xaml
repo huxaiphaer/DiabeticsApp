@@ -13,7 +13,7 @@
                 <Label Text="Login with"  TextColor="#53beed" FontAttributes="Bold"  Margin="10,5,0,0"/>
         
         <Button Text="FACEBOOK" Clicked="onFacebook" Margin="8"  TextColor="White" BackgroundColor="#3b5998" />
-             <Button Text="GMAIL" Margin="8"  TextColor="White" BackgroundColor="Red" />
+             <Button Text="GMAIL" Margin="8" Clicked="onGmail" TextColor="White" BackgroundColor="Red" />
               
         
             </StackLayout>

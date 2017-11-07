@@ -83,4 +83,33 @@
 	<data  name="adddetails" xml:space="preserve">
       <value> إضافة تفاصيل</value>
     </data>
+	<!-- Slider -->
+    <data name="contact_us" xml:space="preserve">
+      <value> اتصل بنا و أعلن هنا  </value>
+    </data>
+    <data name="dontforget" xml:space="preserve">
+      <value>لا ننسى أن تأخذ الدواء </value>
+    </data>
+    <data name="beyourself" xml:space="preserve">
+      <value> كن نفسك مع صفر المخاوف </value>
+    </data>
+    <data name="dialydiabetics" xml:space="preserve">
+      <value> نصائح السكري اليومية  </value>
+    </data>
+	
+
+	<!-- logout-->
+    <data name="logout" xml:space="preserve">
+      <value> الخروج  </value>
+    </data>
+    <!-- Tracking -->
+    <data name="total_number" xml:space="preserve">
+      <value> "إجمالي عدد الأيام : </value>
+    </data>
+    <data name="misseddays" xml:space="preserve">
+      <value>  الأيام الفائتة </value>
+    </data>
+    <data name="takendays" xml:space="preserve">
+      <value> أخذ أيام  </value>
+    </data>
 </root>

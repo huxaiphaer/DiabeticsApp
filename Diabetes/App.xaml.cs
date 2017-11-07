@@ -12,37 +12,90 @@ using Xamarin.Forms;
 
 namespace Diabetes
 {
-    public partial class App : Application
+    public partial class App : Application 
     {
 
         public static bool IsInBackgrounded { get; private set; }
+        MedicationDatabase db = new MedicationDatabase();
+        MakeNotification notify = new MakeNotification();
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new SignUp())
 
+           // notify.MakeAlarm();
+
+            try
             {
-                BarBackgroundColor = Color.FromHex("#66C8F3"),
-                BarTextColor = Color.White,
-                Title = "Diabetics App"
+                if (db.LoggedInStatus() != null && db.GetUserName()!=null)
+                {
+                    //MainPage = new NavigationPage(new ModalPushedEventArgs(MainActivity()));
+                    MainPage = new NavigationPage(new MainActivity(""));
+                   // MainPage = new ModalPushedEventArgs
+                }
+
+                else
+                {
+                    MainPage = new NavigationPage(new SignUp())
+
+                    {
+                        BarBackgroundColor = Color.FromHex("#66C8F3"),
+                        BarTextColor = Color.White,
+                        Title = "Diabetics App"
+                    };
+                }
+            }
+            catch (NullReferenceException es)
+            {
+                MainPage = new NavigationPage(new SignUp())
+
+                {
+                    BarBackgroundColor = Color.FromHex("#66C8F3"),
+                    BarTextColor = Color.White,
+                    Title = "Diabetics App"
+                };
+            }
+            catch (ArgumentOutOfRangeException ew)
+			{
+				MainPage = new NavigationPage(new SignUp())
+
+				{
+					BarBackgroundColor = Color.FromHex("#66C8F3"),
+					BarTextColor = Color.White,
+					Title = "Diabetics App"
+				};
+			}
+            catch (Exception ep)
+            {
+                MainPage = new NavigationPage(new SignUp())
+
+                {
+                    BarBackgroundColor = Color.FromHex("#66C8F3"),
+                    BarTextColor = Color.White,
+                    Title = "Diabetics App"
+                };
+            }
 
 
-            };
         }
 
 
-		public async static Task NavigateToProfile(string message)
-		{
+        public async static Task NavigateToProfile(string message)
+        {
 
 
             await App.Current.MainPage.Navigation.PushModalAsync(new MainActivity(message));
-		}
+        }
 
+
+       /* public async Type MyFirstPage(){
+
+            return await await Navigation.PushAsync(new SignUp());
+        }*/
         protected override void OnStart()
         {
 
-           /* MakeNotification n = new MakeNotification();
-            n.MakeAlarm();*/
+            /* MakeNotification n = new MakeNotification();
+             n.MakeAlarm();*/
 
         }
 
@@ -50,9 +103,9 @@ namespace Diabetes
         protected override void OnSleep()
         {
 
-            MakeNotification n = new MakeNotification();
-            n.MakeAlarm();
+
             base.OnSleep();
+			//notify.MakeAlarm();
 
         }
 
@@ -63,6 +116,7 @@ namespace Diabetes
             base.OnResume();
 
         }
+
 
 
 

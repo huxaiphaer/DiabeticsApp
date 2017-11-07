@@ -5,7 +5,17 @@
 	<uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 	<uses-permission android:name="android.permission.REBOOT" />
-	<application android:label="Diabetes">
-		<receiver android:name="com.diabetics.Diabetes.AlarmReceiver" android:enabled="true" android:exported="true" android:process=":remote" android:label="AlarmReceiver" />
+	<application android:label="Diabetes App">
+		<!-- Will not be called unless the application explicitly enables it -->
+		<service android:name="com.diabetics.Diabetes.AppStickyService">
+			<intent-filter>
+				<action android:name="com.diabetics.Diabetes.AppStickyService" />
+			</intent-filter>
+		</service>
+		<receiver android:name="com.diabetics.Diabetes.AlarmReceiver" android:enabled="false" android:exported="true" android:process=":remote" android:label="AlarmReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter>
+		</receiver>
 	</application>
 </manifest>

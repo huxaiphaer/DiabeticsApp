@@ -172,5 +172,53 @@ namespace Diabetes {
                 return ResourceManager.GetString("adddetails", resourceCulture);
             }
         }
+        
+        internal static string contact_us {
+            get {
+                return ResourceManager.GetString("contact_us", resourceCulture);
+            }
+        }
+        
+        internal static string dontforget {
+            get {
+                return ResourceManager.GetString("dontforget", resourceCulture);
+            }
+        }
+        
+        internal static string beyourself {
+            get {
+                return ResourceManager.GetString("beyourself", resourceCulture);
+            }
+        }
+        
+        internal static string dialydiabetics {
+            get {
+                return ResourceManager.GetString("dialydiabetics", resourceCulture);
+            }
+        }
+        
+        internal static string logout {
+            get {
+                return ResourceManager.GetString("logout", resourceCulture);
+            }
+        }
+        
+        internal static string total_number {
+            get {
+                return ResourceManager.GetString("total_number", resourceCulture);
+            }
+        }
+        
+        internal static string misseddays {
+            get {
+                return ResourceManager.GetString("misseddays", resourceCulture);
+            }
+        }
+        
+        internal static string takendays {
+            get {
+                return ResourceManager.GetString("takendays", resourceCulture);
+            }
+        }
     }
 }
