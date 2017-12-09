@@ -5,6 +5,7 @@ This is an Application which reminds people suffering from Diabets to take Insul
 ## Technologies Used
 1.Visual Studio.
 
+2. Xamarin.Forms.
 
 ## Language Used
 1. C#.
